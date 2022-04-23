@@ -19,9 +19,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 # Compositor
 picom -b &
 
-# Wallpaper
-itrogen --random ~/wallpapers --set-zoom-fill &
-
 # remap caps to escape
 setxkbmap -option caps:escape
 

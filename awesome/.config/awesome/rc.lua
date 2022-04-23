@@ -528,3 +528,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Gaps
 beautiful.useless_gap = 5
+
+-- Wallpaper
+awful.spawn.with_shell("nitrogen --random ~/wallpapers --set-zoom-fill")
