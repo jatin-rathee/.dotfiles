@@ -1,0 +1,7 @@
+[user]
+	email = jatinrathee2018@gmail.com
+	name = jatin-rathee
+[core]
+	editor = nvim
+[ghq]
+	root = /home/jatin/repos
