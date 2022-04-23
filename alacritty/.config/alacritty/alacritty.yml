@@ -1,6 +1,6 @@
 # Window Customization
 window:
-  opacity: .5
+  opacity: .7
   dimensions:
     columns: 140
     lines: 38
@@ -24,7 +24,7 @@ font:
   italic:
     family: Hack Nerd Font Mono
     style: Italic
-  size: 8
+  size: 7 
   offset:
     x: 0
     y: 0
