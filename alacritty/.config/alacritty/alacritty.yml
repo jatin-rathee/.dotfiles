@@ -1,6 +1,6 @@
 # Window Customization
 window:
-  opacity: .7
+  opacity: .85
   dimensions:
     columns: 140
     lines: 38
