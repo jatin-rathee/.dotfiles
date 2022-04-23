@@ -1,3 +1,1 @@
-nitrogen --restore &
-picom &
-exec awesome
+awesome
