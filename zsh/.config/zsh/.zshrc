@@ -48,3 +48,6 @@ setxkbmap -option caps:escape
 
 # For ASDF version manager
 . /opt/asdf-vm/asdf.sh
+
+# Starts zioxide
+eval "$(zoxide init zsh)"
