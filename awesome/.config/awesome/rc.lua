@@ -18,6 +18,15 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+
+-- Custom widgets
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -198,6 +207,12 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    -- default
+    local cw = calendar_widget({
+	theme = 'dark',
+	placement = 'top_right',
+    })
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -210,12 +225,32 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+	    spotify_widget({
+		dim_when_paused = true,
+	    }),
+	    net_speed_widget({
+	    	width = 45,	
+	    }),
+	    volume_widget(),
             wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
-        },
+	    brightness_widget{
+            	type = 'icon_and_text',
+		step = 5,
+		tooltip = false,
+		percentage = true,
+            },
+	    battery_widget({
+            	show_current_level = true,
+	    }),
+	    mytextclock,    
+    },
     }
+
+    mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
 end)
 -- }}}
 
@@ -316,11 +351,16 @@ globalkeys = gears.table.join(
               {description = "launch dmenu", group = "jatin"}),
 
     -- Brave
-    awful.key({ modkey },            "b",     function () 
-    awful.util.spawn("brave")  end,
-              {description = "Open a browser (brave)", group = "jatin"}),
+    awful.key({ modkey },	"b",     function () awful.util.spawn("brave")  end, { description = "Open a browser (brave)", group = "jatin" }),
 
+    -- Brightness
+    awful.key({  }, "XF86MonBrightnessUp", function () brightness_widget:inc() end, { description = "increase brightness", group = "jatin" }),
+    awful.key({  }, "XF86MonBrightnessDown", function () brightness_widget:dec() end, { description = "decrease brightness", group = "jatin" }),
 
+    -- Volume
+    awful.key({ }, "XF86AudioRaiseVolume", function () volume_widget:inc(5) end, { description = "increase volumne", group = "jatin" }),
+    awful.key({ }, "XF86AudioLowerVolume", function () volume_widget:dec(5) end, { description = "decrease volumne", group = "jatin" }),
+    awful.key({ }, "XF86AudioMute", function () volume_widget:toggle() end, { description = "toggle volumne mute", group = "jatin" }),
 
     awful.key({ modkey }, "x",
               function ()
