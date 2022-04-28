@@ -261,3 +261,5 @@ alias cljrepl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version 
 
 alias ddg="duckduckgo"
 alias wiki="wikipedia"
+
+alias myip="curl ipinfo.io"
