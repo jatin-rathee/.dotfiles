@@ -37,17 +37,18 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 
+# Map Caps Lock to Esc -> Arch
+#-setxkbmap -option caps:escape
+
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
 bindkey -s '^f' 'zi^M'
 bindkey '^]' peco-src
 zle -N peco-src
 
-# TODO Remove these
-setxkbmap -option caps:escape
-
 # For ASDF version manager
-. /opt/asdf-vm/asdf.sh
+#. /opt/asdf-vm/asdf.sh -> For Arch
+. /opt/homebrew/opt/asdf/libexec/asdf.sh # -> For Mac
 
 # Starts zioxide
 eval "$(zoxide init zsh)"
