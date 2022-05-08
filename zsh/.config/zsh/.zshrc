@@ -52,3 +52,8 @@ zle -N peco-src
 
 # Starts zioxide
 eval "$(zoxide init zsh)"
+
+# Run Tmux on startup
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+#   exec tmux
+# fi
