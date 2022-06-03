@@ -29,9 +29,9 @@ alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on uni
 # | ls |
 # +----+
 
-alias ls='exa --icons'
-alias ll='exa --icons -l'
-alias lla='exa --icons -al'
+alias ls='exa --icons --group-directories-first'
+alias ll='exa --icons -l --group-directories-first'
+alias lla='exa --icons -al --group-directories-first'
 
 # +----+
 # | cp |
@@ -84,7 +84,7 @@ alias batl='bat --paging=never -l log'
 # | pacman |
 # +--------+
 
-alias paci='sudo pacman -S'               # install
+alias paci='sudo pacman -S'               # instal
 alias pachi='sudo pacman -Ql'             # Pacman Has Installed - what files where installed in a package
 alias pacs='sudo pacman -Ss'              # search
 alias pacu='sudo pacman -Syu'             # update
