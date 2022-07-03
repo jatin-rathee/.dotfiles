@@ -57,7 +57,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = os.getenv("TERMINAL") or "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -116,7 +116,9 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local format = " %a %b %d, %l:%M:%S %p "
+local timeout = 1
+mytextclock = wibox.widget.textclock(format, timeout)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -209,8 +211,8 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- default
     local cw = calendar_widget({
-	theme = 'dark',
-	placement = 'top_right',
+	    theme = 'dark',
+	    placement = 'top_right',
     })
 
     -- Add widgets to the wibox

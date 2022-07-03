@@ -263,3 +263,10 @@ alias ddg="duckduckgo"
 alias wiki="wikipedia"
 
 alias myip="curl ipinfo.io"
+
+# +-----------+
+# | Tailscale |
+# +-----------+
+
+alias tssend="sudo tailscale file cp "
+alias tsrec="sudo tailscale file get ."
