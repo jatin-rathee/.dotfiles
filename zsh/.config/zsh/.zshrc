@@ -47,17 +47,9 @@ bindkey -s '^f' 'zi^M'
 bindkey '^]' peco-src
 zle -N peco-src
 
-# For ASDF version manager
-#. /opt/asdf-vm/asdf.sh -> For Arch
-. /opt/homebrew/opt/asdf/libexec/asdf.sh # -> For Mac
 
 # Starts zioxide
 eval "$(zoxide init zsh)"
-
-# Run Tmux on startup
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  exec tmux
-fi
 
 # Print welcome fortune
 fortune | cowsay | lolcat
@@ -65,3 +57,26 @@ fortune | cowsay | lolcat
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+case `uname` in
+  Darwin)
+    # commands for OS X go her
+    # For ASDF version manager
+    #. /opt/asdf-vm/asdf.sh -> For Arch
+    . /opt/homebrew/opt/asdf/libexec/asdf.sh # -> For Mac
+
+    # Run Tmux on startup
+    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+      exec tmux
+    fi
+  ;;
+  Linux)
+    # commands for Linux go here
+    # For ASDF version manager
+    . /opt/asdf-vm/asdf.sh # -> For Arch
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
