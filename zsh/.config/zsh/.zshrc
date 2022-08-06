@@ -74,8 +74,8 @@ case `uname` in
   ;;
   Linux)
     # commands for Linux go here
-    # For ASDF version manager
-    . /opt/asdf-vm/asdf.sh # -> For Arch
+    # For NVM setup
+    source /usr/share/nvm/init-nvm.sh
   ;;
   FreeBSD)
     # commands for FreeBSD go here

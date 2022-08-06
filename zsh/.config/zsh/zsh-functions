@@ -40,24 +40,22 @@ function peco-src () {
 }
 
 
-#
-# Run 'nvm use' automatically every time there's
-# a .nvmrc file in the directory. Also, revert to default
-# version when entering a directory without .nvmrc
-#
-function nvm_autouse() {
-  # if [[ $PWD == $PREV_PWD ]]; then
-  #    return
-  # fi
-  
-  PREV_PWD=$PWD
-  if [[ -f ".nvmrc" ]]; then
-     nvm use 
-     NVM_DIRTY=true
-  elif [[ $NVM_DIRTY = true ]]; then
-     nvm use default
-     NVM_DIRTY=false
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
   fi
 }
-nvm_autouse &>/dev/null
-chpwd_functions=(${chpwd_functions[@]} "nvm_autouse")
+add-zsh-hook chpwd load-nvmrc
