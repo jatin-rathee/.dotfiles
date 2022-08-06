@@ -16,3 +16,6 @@ fi
 
 # nvm
 NVM_DIR="$HOME/.nvm"
+
+# sdkman
+SDKMAN_DIR="$HOME/.sdkman"

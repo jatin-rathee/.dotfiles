@@ -53,19 +53,17 @@ zle -N peco-src
 eval "$(zoxide init zsh)"
 
 # Print welcome fortune
-fortune | cowsay | lolcat
+# fortune | cowsay | lolcat
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
+# Loads sdkman - java
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 
 case `uname` in
   Darwin)
     # commands for OS X go her
     # For NVM setup
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
     # Run Tmux on startup
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
@@ -75,7 +73,7 @@ case `uname` in
   Linux)
     # commands for Linux go here
     # For NVM setup
-    source /usr/share/nvm/init-nvm.sh
+    [ -s "/usr/share/nvm/init-nvm.sh"] && .\ "/usr/share/nvm/init-nvm.sh"   # This loads nvm
   ;;
   FreeBSD)
     # commands for FreeBSD go here
