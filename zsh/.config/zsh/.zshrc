@@ -4,6 +4,7 @@ setopt appendhistory
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
+setopt HIST_IGNORE_ALL_DUPS   # removes duplicates from zsh history
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
@@ -62,9 +63,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 case `uname` in
   Darwin)
     # commands for OS X go her
-    # For ASDF version manager
-    #. /opt/asdf-vm/asdf.sh -> For Arch
-    . /opt/homebrew/opt/asdf/libexec/asdf.sh # -> For Mac
+    # For NVM setup
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
     # Run Tmux on startup
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
