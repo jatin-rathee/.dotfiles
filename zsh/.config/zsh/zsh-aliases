@@ -91,11 +91,12 @@ alias pacu='sudo pacman -Syu'             # update
 alias pacr='sudo pacman -R'               # remove package but not dependencies
 alias pacrr='sudo pacman -Rs'             # remove package with unused dependencies by other softwares
 alias pacrc='sudo pacman -Sc'             # remove pacman's cache
-alias pacro='pacman -Rns $(pacman -Qtdq)'
+alias pacro='sudo pacman -Rns $(pacman -Qtdq)'
 alias pacrl='rm /var/lib/pacman/db.lck'   # pacman remove locks
 alias pacls="sudo pacman -Qe"
 alias pacc='sudo pacman -Sc'
 alias paccc='sudo pacman -Scc'            # empty the whole cache
+alias mirrors='sudo reflector -c India -a 6 --sort rate --save /etc/pacman.d/mirrorlist'  # update mirrorlist
 
 # +-----+
 # | yay |
@@ -109,6 +110,7 @@ alias yayr='yay -R'     # remove package but not dependencies
 alias yayrr='yay -Rs'   # remove package with unused dependencies by other softwares
 alias yayrc='yay -Sc'   # remove yay's cache
 alias yayls="yay -Qe"
+alias yayyc="yay -Yc"   # removes all unwanted dependencies from system
 
 # +--------+
 # | netctl |

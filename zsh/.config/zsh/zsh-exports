@@ -1,3 +1,8 @@
+# zsh
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+
+# pnpm
+PNPM_HOME="/home/jatin/.local/share/pnpm"
+PATH="$PNPM_HOME:$PATH"
