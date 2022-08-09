@@ -1,5 +1,6 @@
 import:
-  - dracula.yml
+  - ~/.config/alacritty/dracula.yml
+  # - ~/.config/alacritty/tokyonight.yml
 
 # Window Customization
 window:
@@ -46,8 +47,8 @@ cursor:
 # Key Bindings
 key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }
-#  - { key: V, mods: Control, action: Paste }
-#  - { key: C, mods: Control, action: Copy }
+  - { key: V, mods: Control, action: Paste }
+  - { key: C, mods: Control, action: Copy }
 
   # TMUX key bindings
   # Rename the current tmux window
