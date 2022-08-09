@@ -35,6 +35,7 @@ zsh_add_file "zsh-tokens"
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "lukechilds/zsh-nvm"
 # zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
@@ -61,7 +62,7 @@ eval "$(zoxide init zsh)"
 case `uname` in
   Darwin)
     # commands for OS X go her
-    # For NVM setup
+    # For NVM setup - using zsh-nvm instead now
     # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
     # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
@@ -72,8 +73,8 @@ case `uname` in
   ;;
   Linux)
     # commands for Linux go here
-    # For NVM setup
-    [ -s "/usr/share/nvm/init-nvm.sh"] && .\ "/usr/share/nvm/init-nvm.sh"   # This loads nvm
+    # For NVM setup - using zsh-nvm instead now
+    # [ -s "/usr/share/nvm/init-nvm.sh"] && .\ "/usr/share/nvm/init-nvm.sh"   # This loads nvm
   ;;
   FreeBSD)
     # commands for FreeBSD go here

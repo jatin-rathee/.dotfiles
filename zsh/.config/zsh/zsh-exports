@@ -15,7 +15,26 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # nvm
+NVM_AUTO_USE=true   # automatically changes node version if .nvmrc is present
+NVM_LAZY_LOAD=true  # lazy loads nvm
+NVM_COMPLETION=true # enables zsh completions
 NVM_DIR="$HOME/.nvm"
 
 # sdkman
 SDKMAN_DIR="$HOME/.sdkman"
+
+case `uname` in
+  Darwin)
+    # For Mac - React native setup
+    ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+    PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+    PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+
