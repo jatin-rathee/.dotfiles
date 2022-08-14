@@ -1,6 +1,8 @@
 #!/bin/sh
 setopt appendhistory
 
+zmodload zsh/zprof
+
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
@@ -44,10 +46,13 @@ zsh_add_plugin "lukechilds/zsh-nvm"
 #-setxkbmap -option caps:escape
 
 # Key-bindings
+zle -N peco-history-selection
+zle -N peco-src
+
 bindkey -s '^o' 'ranger^M'
 bindkey -s '^f' 'zi^M'
 bindkey '^]' peco-src
-zle -N peco-src
+bindkey '^R' peco-history-selection
 
 
 # Starts zioxide
@@ -67,9 +72,9 @@ case `uname` in
     # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
     # Run Tmux on startup
-    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
-      exec tmux
-    fi
+    # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    #   exec tmux
+    # fi
   ;;
   Linux)
     # commands for Linux go here
@@ -80,3 +85,7 @@ case `uname` in
     # commands for FreeBSD go here
   ;;
 esac
+
+
+zprof > ~/zsh-profiling.txt
+

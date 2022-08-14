@@ -20,8 +20,8 @@ alias xpropc='xprop | grep WM_CLASS' # display xprop class
 # | Zsh |
 # +-----+
 
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
+# alias d='dirs -v'
+# for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
 
 alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty'
 
@@ -66,7 +66,7 @@ alias pg='ping 8.8.8.8'
 # | time |
 # +------+
 
-alias time='/usr/bin/time'
+# alias time='/usr/bin/time'
 
 # +----+
 # | bc |
@@ -156,7 +156,7 @@ alias svim='sudoedit'
 alias dvim="vim -u /usr/share/nvim/archlinux.vim" # nvim with default config
 alias nvimc='rm -I $VIMCONFIG/swap/*'             # clean nvim swap file
 alias nvimcu='rm -I $VIMCONFIG/undo/*'            # clean the vim undo
-alias nviml='nvim -w $VIMCONFIG/vimlog "$@"'      # log the keystrokes 
+# alias nviml='nvim -w $VIMCONFIG/vimlog "$@"'      # log the keystrokes 
 alias nvimd='nvim --noplugin -u NONE'             # launch nvim without any plugin or config (nvim debug)
 
 # +-----+
