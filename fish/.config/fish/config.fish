@@ -1,9 +1,5 @@
 set fish_greeting # disable fish greeting
 
-# importing machine-name based config (RZP1514 / arch)
-set host_config ~/.config/fish/config.(hostname).fish
-test -r $host_config; and source $host_config
-
 # env variables
 set -U LANG en_US.UTF-8
 set -U LC_ALL en_US.UTF-8
@@ -15,10 +11,29 @@ set -Ux NODE_PATH $HOME/.nvm/versions/node/v16.16.0/bin/node
 set -U EDITOR nvim
 
 # added stuff to PATH
+
+# importing machine-name based config (RZP1514 / arch)
+# set host_config ~/.config/fish/config.(hostname).fish
+# test -r $host_config; and source $host_config
+
+switch (uname)
+  case Linux
+    # commands for Linux go here
+  case Darwin
+    # commands for OS X go her
+    fish_add_path /opt/homebrew/bin
+    fish_add_path /opt/homebrew/sbin
+  case FreeBSD NetBSD DragonFly
+    echo Hi Beastie!
+  case '*'
+    echo Hi, stranger!
+end
+
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
 fish_add_path $HOME/.config/bin
 fish_add_path $HOME/.nvm/versions/node/v16.16.0/bin
+fish_add_path $HOME/.pyenv/shims
 
 # init prompt, z and pyenv
 starship init fish | source
