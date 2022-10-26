@@ -64,3 +64,14 @@ source ~/.config/fish/tokens.fish
 
 # abbr's 
 abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
+
+switch (uname)
+  case Linux
+    # commands for Linux go here
+    # start X at login
+    if status --is-login
+        if test -z "$DISPLAY" -a $XDG_VTNR = 1
+            exec startx
+        end
+    end
+end
