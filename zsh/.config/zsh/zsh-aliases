@@ -273,3 +273,10 @@ alias myip="curl ipinfo.io"
 
 alias tssend="sudo tailscale file cp "
 alias tsrec="sudo tailscale file get ."
+
+# +------------+
+# | Word Count |
+# +------------+
+
+alias wcl="wc -l"
+alias c="code ."

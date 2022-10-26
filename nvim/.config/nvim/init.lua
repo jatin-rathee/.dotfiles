@@ -1,1 +1,2 @@
-require("jatin")
+require("nvim")
+
