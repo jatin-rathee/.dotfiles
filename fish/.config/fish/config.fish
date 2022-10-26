@@ -7,7 +7,7 @@ set -U LC_ALL en_US.UTF-8
 set -U GOPATH (go env GOPATH)
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -Ux PNPM_HOME $HOME/.local/share/pnpm
-set -Ux NODE_PATH $HOME/.nvm/versions/node/v16.16.0/bin/node
+set -Ux NODE_PATH $HOME/.nvm/versions/node/v16.17.1/bin/node
 set -U EDITOR nvim
 
 # added stuff to PATH
