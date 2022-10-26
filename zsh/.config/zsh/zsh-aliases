@@ -176,6 +176,7 @@ alias grb='git branch -r'                                                       
 alias gplo='git pull origin'
 alias gb='git branch '
 alias gc='git commit'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gco='git checkout '
 alias gl='git log --pretty=oneline'
@@ -272,3 +273,10 @@ alias myip="curl ipinfo.io"
 
 alias tssend="sudo tailscale file cp "
 alias tsrec="sudo tailscale file get ."
+
+# +------------+
+# | Word Count |
+# +------------+
+
+alias wcl="wc -l"
+alias c="code ."

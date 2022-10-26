@@ -1,0 +1,1 @@
+require('nvim.plugins.telescope.config')
