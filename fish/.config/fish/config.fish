@@ -21,8 +21,15 @@ switch (uname)
     # commands for Linux go here
   case Darwin
     # commands for OS X go her
+    
     fish_add_path /opt/homebrew/bin
     fish_add_path /opt/homebrew/sbin
+    
+    # use curl from homebrew
+    set -gx LDFLAGS "-L/opt/homebrew/opt/curl/lib"
+    set -gx CPPFLAGS "-I/opt/homebrew/opt/curl/include"
+
+    fish_add_path /opt/homebrew/opt/curl/bin
   case FreeBSD NetBSD DragonFly
     echo Hi Beastie!
   case '*'
@@ -32,7 +39,7 @@ end
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
 fish_add_path $HOME/.config/bin
-fish_add_path $HOME/.nvm/versions/node/v16.16.0/bin
+fish_add_path $HOME/.nvm/versions/node/v16.17.1/bin
 fish_add_path $HOME/.pyenv/shims
 
 # init prompt, z and pyenv

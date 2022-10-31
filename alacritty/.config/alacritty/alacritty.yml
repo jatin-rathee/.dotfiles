@@ -37,7 +37,7 @@ font:
 draw_bold_text_with_bright_colors: false
 
 shell:
-  program: /opt/homebrew/bin/fish
+  program: /usr/local/bin/fish
 
 # Cursor
 # cursor:
