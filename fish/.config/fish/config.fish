@@ -41,6 +41,7 @@ fish_add_path $GOPATH/bin
 fish_add_path $HOME/.config/bin
 fish_add_path $HOME/.nvm/versions/node/v16.17.1/bin
 fish_add_path $HOME/.pyenv/shims
+fish_add_path $HOME/.cargo/bin
 
 # init prompt, z and pyenv
 starship init fish | source
