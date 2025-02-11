@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -z "$2" ]
+  then
+    kubectl get pods -n $1;
+else
+  kubectl get pods -n $2 | grep $1;
+fi
+

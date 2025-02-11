@@ -7,7 +7,8 @@ set -U LC_ALL en_US.UTF-8
 set -U GOPATH (go env GOPATH)
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -Ux PNPM_HOME $HOME/.local/share/pnpm
-set -Ux NODE_PATH $HOME/.nvm/versions/node/v16.17.1/bin/node
+set -Ux NODE_PATH $HOME/.nvm/versions/node/v18.18.0/bin/node
+#set -Ux NODE_OPTIONS --openssl-legacy-provider
 set -U EDITOR nvim
 
 # added stuff to PATH
@@ -39,7 +40,7 @@ end
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
 fish_add_path $HOME/.config/bin
-fish_add_path $HOME/.nvm/versions/node/v16.17.1/bin
+fish_add_path $HOME/.nvm/versions/node/v18.18.0/bin
 fish_add_path $HOME/.pyenv/shims
 fish_add_path $HOME/.cargo/bin
 
@@ -65,7 +66,7 @@ function fish_user_key_bindings
 end
 
 # importing common aliases
-source ~/.config/zsh/zsh-aliases
+source ~/.config/fish/aliases
 
 # private tokens
 source ~/.config/fish/tokens.fish
